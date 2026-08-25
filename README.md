@@ -42,8 +42,7 @@ Desenvolva uma aplicação em Python que permita:
 3. Cadastrar clientes.
 4. Listar os clientes cadastrados.
 5. Realizar uma locação.
-6. Calcular automaticamente o desconto e o valor final.
-7. Listar as locações realizadas.
+6. Listar as locações realizadas.
    
 O programa deve utilizar:
 
