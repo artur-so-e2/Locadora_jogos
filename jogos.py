@@ -5,6 +5,7 @@ plataformas = ["PLAYSTATION", "PC", "NINTENDO", "XBOX"]
 jogos = []
 
 def cadastrar_jogo(titulo, genero, plataforma, valor, estoque):
+    jogo = {}
     if plataforma == 1:
         jogo = {'titulo': titulo, 'genero': genero, 'plataforma': 'Playstation', 'valor': valor, 'estoque': estoque}
     elif plataforma == 2:

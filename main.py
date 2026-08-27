@@ -1,6 +1,7 @@
 from persistencia import carregar_jogos, carregar_clientes, carregar_locacoes
-from locacoes import cadastrar_locacoes
 from jogos import jogos, plataformas, cadastrar_jogo, listar_jogos
+from clientes import cadastrar_clientes, listar_clientes
+from locacoes import cadastrar_locacoes, listar_locacoes
 
 def menu_jogos():
     print("-"*5, "MENU DE JOGOS", "-"*5)
@@ -9,7 +10,7 @@ def menu_jogos():
 
     opcao2 = input("Digite a opção que deseja realizar: ")
 
-    if (opcao2 == '1'):
+    if opcao2 == '1':
         print("Plataformas:")
         for indice, plataforma in enumerate(plataformas, start=1):
             print(indice, "-", plataforma)
@@ -21,7 +22,23 @@ def menu_jogos():
         cadastrar_jogo(titulo, genero, plataforma_escolhida, valor, estoque)
 
     elif opcao2 == '2': 
-        carregar_jogos()
+        listar_jogos()
+
+def menu_clientes():
+    print("-"*5, "MENU DE CLIENTES", "-"*5)
+    print("1 - Cadastrar cliente")
+    print("2 - Listar clientes")
+
+    opcao3 = input("Digite a opção que deseja realizar: ")
+
+    if opcao3 == '1':
+        nome = input("Digite seu nome: ")
+        cpf = input("Digite seu cpf: ")
+        telefone = input("Digite seu telefone: ")
+        cadastrar_clientes(nome, cpf, telefone)
+
+    elif opcao3 == '2':
+        listar_clientes()
 
 def menu_locacoes():
     print("-"*5, "MENU DE LOCAÇÕES", "-"*5)
@@ -30,21 +47,25 @@ def menu_locacoes():
 
     opcao4 = input("Digite a opção que deseja realizar: ")
 
-    if (opcao4 == '1'):
+    if opcao4 == '1':
         listar_jogos()
         id_jogo = int(input("Digite qual o id do jogo que você deseja alugar: "))
+        listar_clientes()
+        cliente = input("Digite seu cpf: ")
         dias = int(input("Digite por quantos dias você vai ficar com esse jogo: "))
         jogo = jogos[id_jogo-1]
         if jogo['estoque'] <= 0:
             print("Esse jogo não está disponível.")
             return
         jogo['estoque'] -= 1
-        cadastrar_locacoes(jogo, dias)
+        cadastrar_locacoes(jogo, dias, cliente)
+
+    elif opcao4 == '2':
+        listar_locacoes()
         
-
-
-
 jogos = carregar_jogos()
+clientes = carregar_clientes()
+locacoes = carregar_locacoes()
 while(True):
     print("="*15, "MENU", "="*15)
     print("1 - Jogos")
@@ -56,10 +77,9 @@ while(True):
 
     if opcao == '1':
         menu_jogos()
-        carregar_jogos()
 
     elif opcao == '2':
-        pass
+        menu_clientes()
 
     elif opcao == '3':
         menu_locacoes()
