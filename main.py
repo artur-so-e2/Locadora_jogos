@@ -3,6 +3,7 @@ from jogos import jogos, plataformas, cadastrar_jogo, listar_jogos
 from clientes import cadastrar_clientes, listar_clientes
 from locacoes import cadastrar_locacoes, listar_locacoes
 
+jogos = carregar_jogos()
 def menu_jogos():
     print("-"*5, "MENU DE JOGOS", "-"*5)
     print("1 - Cadastrar jogos")
@@ -24,6 +25,7 @@ def menu_jogos():
     elif opcao2 == '2': 
         listar_jogos()
 
+clientes = carregar_clientes()
 def menu_clientes():
     print("-"*5, "MENU DE CLIENTES", "-"*5)
     print("1 - Cadastrar cliente")
@@ -40,6 +42,7 @@ def menu_clientes():
     elif opcao3 == '2':
         listar_clientes()
 
+locacoes = carregar_locacoes()
 def menu_locacoes():
     print("-"*5, "MENU DE LOCAÇÕES", "-"*5)
     print("1 - Realizar locações")
