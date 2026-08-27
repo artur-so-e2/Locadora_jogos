@@ -3,8 +3,13 @@ from locacoes import cadastrar_locacoes
 from jogos import jogos, plataformas, cadastrar_jogo, listar_jogos
 
 def menu_jogos():
-    opcao = input("Digite 1-Cadastrar 2-Listar: ")
-    if (opcao == '1'):
+    print("-"*5, "MENU DE JOGOS", "-"*5)
+    print("1 - Cadastrar jogos")
+    print("2 - Listar jogos")
+
+    opcao2 = input("Digite a opção que deseja realizar: ")
+
+    if (opcao2 == '1'):
         print("Plataformas:")
         for indice, plataforma in enumerate(plataformas, start=1):
             print(indice, "-", plataforma)
@@ -15,12 +20,17 @@ def menu_jogos():
         estoque = int(input("Informe o estoque inicial: "))
         cadastrar_jogo(titulo, genero, plataforma_escolhida, valor, estoque)
 
-    elif opcao == '2':
+    elif opcao2 == '2': 
         carregar_jogos()
 
 def menu_locacoes():
-    opcao = input("Digite 1-Realizar locação 2-Listar locações: ")
-    if (opcao == '1'):
+    print("-"*5, "MENU DE LOCAÇÕES", "-"*5)
+    print("1 - Realizar locações")
+    print("2 - Listar locações")
+
+    opcao4 = input("Digite a opção que deseja realizar: ")
+
+    if (opcao4 == '1'):
         listar_jogos()
         id_jogo = int(input("Digite qual o id do jogo que você deseja alugar: "))
         dias = int(input("Digite por quantos dias você vai ficar com esse jogo: "))
@@ -38,39 +48,23 @@ jogos = carregar_jogos()
 while(True):
     print("="*15, "MENU", "="*15)
     print("1 - Jogos")
-    print("2 - Listar jogos")
-    print("3 - Cadastrar clientes")
-    print("4 - Listar clientes")
-    print("5 - Locações")
-    print("7 - Sair")
+    print("2 - Clientes")
+    print("3 - Locações")
+    print("4 - Sair")
 
     opcao = input("Digite a opção que deseja realizar: ")
 
     if opcao == '1':
         menu_jogos()
-
-    elif opcao == '2':
         carregar_jogos()
 
-    elif opcao == '3':
+    elif opcao == '2':
         pass
 
-    elif opcao == '4':
-        carregar_clientes()
-
-    elif opcao == '5':
+    elif opcao == '3':
         menu_locacoes()
 
-    elif opcao == '6':
-        jogo = input("Digite qual o id do jogo que você deseja alugar: ")
-        dias = int(input("Digite por quantos dias você vai ficar com esse jogo: "))
-        for game in jogos:
-            if unidades > 0:
-                carregar_locacoes(jogo, dias)
-                unidades -= 1
-                print("Locação realizada com sucesso.")
-
-    elif opcao == '7':
+    elif opcao == '4':
         break
 
     else:

@@ -2,7 +2,7 @@ import json
 
 def salvar_jogos(jogos):
     with open("jogos.json", "w", encoding="utf-8") as arquivo:
-        json.dump(jogos, arquivo)
+        json.dump(jogos, arquivo, indent=4)
 
 def carregar_jogos():
     try:
@@ -14,7 +14,7 @@ def carregar_jogos():
 
 def salvar_clientes(clientes):
     with open("clientes.json", "w", encoding="utf-8") as arquivo:
-        json.dump()
+        json.dump(clientes,arquivo ,indent=4)
 
 def carregar_clientes():
     try:
@@ -26,7 +26,7 @@ def carregar_clientes():
 
 def salvar_locacoes(locacoes):
     with open("locacoes.json", "w", encoding="utf-8") as arquivo:
-        json.dump(locacoes, arquivo)
+        json.dump(locacoes, arquivo, indent=4)
 
 def carregar_locacoes():
     try:
